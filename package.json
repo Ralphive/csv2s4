@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Ralphive/csv2s4/issues"
   },
-  "homepage": "https://github.com/Ralphive/csv2s4#readme"
+  "homepage": "https://github.com/Ralphive/csv2s4#readme",
+  "dependencies": {
+    "async": "^3.2.0",
+    "csv-parse": "^4.16.0",
+    "fs": "0.0.1-security"
+  }
 }
