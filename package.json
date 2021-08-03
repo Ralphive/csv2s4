@@ -1,0 +1,19 @@
+{
+  "name": "csv2s4",
+  "version": "1.0.0",
+  "description": "Reads a CSV file and creates documents on S4 Hana Cloud",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ralphive/csv2s4.git"
+  },
+  "author": "Ralphive",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Ralphive/csv2s4/issues"
+  },
+  "homepage": "https://github.com/Ralphive/csv2s4#readme"
+}
