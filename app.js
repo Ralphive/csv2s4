@@ -1,6 +1,7 @@
-var fs = require('fs');
-var parse = require('csv-parse');
-var async = require('async');
+const fs = require('fs');
+const parse = require('csv-parse');
+const async = require('async');
+
 
 //run this app with node app.js <filename.csv>
 var inputFile = process.argv[2];
