@@ -1,5 +1,5 @@
 # csv2s4
-Read a CSV file and create Sales Orders in S/4 Hana Cloud
+Reads a CSV file and create Sales Orders in S/4 Hana Cloud
 
 ## Pre reqs:
 * [NodeJS](https://nodejs.org/en/)
