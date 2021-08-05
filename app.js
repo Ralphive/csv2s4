@@ -1,10 +1,12 @@
 const fs = require('fs');
 const parse = require('csv-parse');
 const async = require('async');
+const axios = require('axios');
 
 
-//run this app with node app.js <filename.csv>
-var inputFile = process.argv[2];
+//run this app with node app.js <filename.csv> <s4Tenant:port> <user> <password>
+const inputFile = process.argv[2];
+const s4URL = process.argv[3]
 
 var parser = parse({
     delimiter: ','
@@ -41,4 +43,25 @@ function csvline2SO(line) {
             }
         ]
     }
+}
+
+
+let getToken = function () {
+    return new Promise(function (resolve, reject) {    
+        //return x-csrf-token required to make POST requests
+        axios.request({
+            url: "/sap/opu/odata/SAP/API_SALES_ORDER_SRV/",
+            method: "HEAD",
+            headers: {
+                'Authentication': 'Basic '+ process.argv[4]
+              },
+            baseURL: s4URL,
+        }).then((res) => {
+            console.log(res)
+            resolve(res.data.message)
+        }).catch((err) => {
+            console.error(err)
+            reject(err)
+        });
+    })
 }
