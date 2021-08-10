@@ -75,7 +75,8 @@ let createSO = function (token, data) {
 }
 
 let parser = parse({
-    delimiter: ','
+    delimiter: ',',
+    relax_column_count: true
 }, function (err, data) {
     getToken().then(token => {
          async.eachSeries(data, function (line, callback) {
@@ -93,26 +94,30 @@ let parser = parse({
 fs.createReadStream(inputFile).pipe(parser);
 
 function csvline2SO(line) {
+
+    let orderDate = line.pop();
+    let items = []
+
+    line.forEach(item => {
+        items.push({
+            "Material": item,
+            "RequestedQuantity": "1"
+        })
+    });
+
+
     return {
         "SalesOrderType": "OR",
         "SalesOrganization": "1710",
         "DistributionChannel": "10",
         "OrganizationDivision": "00",
         "SoldToParty": "17100002",
-        "SalesOrderDate": line[2] + "T04:00:00",
+        "SalesOrderDate": orderDate + "T04:00:00",
         "PurchaseOrderByCustomer": "Analytics data load",
         "to_Partner": [{
             "PartnerFunction": "SH",
             "Customer": "17100002"
         }],
-        "to_Item": [{
-                "Material": line[0],
-                "RequestedQuantity": "1"
-            },
-            {
-                "Material": line[1],
-                "RequestedQuantity": "1"
-            }
-        ]
+        "to_Item": items
     }
 }

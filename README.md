@@ -6,7 +6,7 @@ Reads a CSV file and create Sales Orders in S/4 Hana Cloud
 
 * CSV file in the format:
 
-`item1,item2,yyyy-mm-dd`
+`item1,item2,item3...itemN,yyyy-mm-dd`
 
 * Sales order API running. [Check the official docs](https://help.sap.com/viewer/19d48293097f4a2589433856b034dfa5/1909.002/en-US/28d644581efca007e10000000a441470.html)
 
